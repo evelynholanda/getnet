@@ -1,4 +1,4 @@
-node_modules
-package-lock.json
-reports
-videos
+node_modules/
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
