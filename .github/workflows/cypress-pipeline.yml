@@ -1,49 +1,12 @@
-# Nome pipeline
-name: Run Basic Testes
-
-# Quando será executada (push, pull requests)
-on: 
-  push
-
-# Jobs para bildar, rodar testes, criar ambiente
+name: End-to-end tests
+on: push
 jobs:
   cypress-run:
-# Maquina que será executada (ubuntu, mac)
-    runs-on: ubunt# Nome pipeline
-    name: Run Basic Testes
-    
-    # Quando será executada (push, pull requests)
-    on: 
-      pull requests: 
-        branches: [master]
-    
-    # Jobs para bildar, rodar testes, criar ambiente
-    jobs:
-      cypress run:
-    # Maquina que será executada (ubuntu, mac)
-        runs-on: ubuntu-latest
-    # Passo a passo para rodar os testes
-        steps: 
-         -  name: Checkout/Clone do projeto
-            uses: actions/checkout@v3
-    
-         -  name: Run testes
-            uses: cypress-io/github-action@v5
-            with: 
-              record: true
-            env:
-              CYPRESS_RECORD_KEY: ${{ secrets. CYPRESS_RECORD_KEY }}
-    
-    
-# Passo a passo para rodar os testes
-    steps: 
-     -  name: Checkout/Clone do projeto
-        uses: actions/checkout@v3
-
-     -  name: Run testes
-        uses: cypress-io/github-action@v5
-        with: 
-          record: true
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets. CYPRESS_RECORD_KEY }}
-
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          component: true
