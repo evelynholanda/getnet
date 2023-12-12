@@ -3,12 +3,12 @@ name: Run Basic Testes
 
 # Quando será executada (push, pull requests)
 on: 
-  pull requests: 
+  pull_request: 
     branches: [master]
 
 
 jobs:
-  cypress run:
+  cypress-run:
 # Maquina que será executada (ubuntu, mac)
     runs-on: ubuntu-latest
 # Passo a passo para rodar os testes
