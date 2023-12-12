@@ -3,8 +3,7 @@ name: Run Basic Testes
 
 # Quando será executada (push, pull requests)
 on: 
-  pull_request: 
-    branches: [main]
+  push
 
 # Jobs para bildar, rodar testes, criar ambiente
 jobs:

@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "npx cypress open",
-    "cypress:run": "npx cypress run"
+    
+    "cy:open": "cypress open",
+    "cy:opem:mobile":"cypress open --config  viewportWidht=410 viewportHeight=860",
+    "test:mobile":"cypress run --config  viewportWidht=410 viewportHeight=860",
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "",
