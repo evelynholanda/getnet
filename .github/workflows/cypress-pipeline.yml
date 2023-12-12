@@ -9,7 +9,32 @@ on:
 jobs:
   cypress-run:
 # Maquina que será executada (ubuntu, mac)
-    runs-on: ubuntu-18.04
+    runs-on: ubunt# Nome pipeline
+    name: Run Basic Testes
+    
+    # Quando será executada (push, pull requests)
+    on: 
+      pull requests: 
+        branches: [master]
+    
+    # Jobs para bildar, rodar testes, criar ambiente
+    jobs:
+      cypress run:
+    # Maquina que será executada (ubuntu, mac)
+        runs-on: ubuntu-latest
+    # Passo a passo para rodar os testes
+        steps: 
+         -  name: Checkout/Clone do projeto
+            uses: actions/checkout@v3
+    
+         -  name: Run testes
+            uses: cypress-io/github-action@v5
+            with: 
+              record: true
+            env:
+              CYPRESS_RECORD_KEY: ${{ secrets. CYPRESS_RECORD_KEY }}
+    
+    
 # Passo a passo para rodar os testes
     steps: 
      -  name: Checkout/Clone do projeto
